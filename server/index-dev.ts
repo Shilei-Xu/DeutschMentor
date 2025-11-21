@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 import { type Express } from "express";
 import { createServer as createViteServer, createLogger } from "vite";
 
-import viteConfig from "../vite.config";
+import viteConfig from "../vite.config.ts "; 
 import runApp from "./app";
 import { connectDB } from "./db";
 

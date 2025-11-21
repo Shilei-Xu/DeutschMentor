@@ -4,22 +4,27 @@
   "compilerOptions": {
     "incremental": true,
     "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
-    // 1. 【移除或改为 false】我们现在需要编译输出！
+    
+    // **1. 启用编译输出**：让 tsc 生成 JavaScript 文件
     "noEmit": false, 
     
-    // 2. 【新增】指定编译后的 JS 文件要输出到哪个文件夹
+    // **2. 指定输出目录**：编译结果放入 dist 文件夹
     "outDir": "./dist", 
     
-    // 3. 【新增】指定 TypeScript 源文件的根目录（让编译后的目录结构更清晰）
+    // **3. 指定源文件根目录**：确保 dist 目录结构清晰
     "rootDir": "./server",
-    "module": "ESNext",
+    
+    // **4. Node.js 生产环境优化**：使用 NodeNext 模块系统
+    "module": "NodeNext", 
+    "moduleResolution": "NodeNext",
+    
     "strict": true,
     "lib": ["esnext", "dom", "dom.iterable"],
     "jsx": "preserve",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
-    "moduleResolution": "bundler",
+    
     "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
