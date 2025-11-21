@@ -4,7 +4,14 @@
   "compilerOptions": {
     "incremental": true,
     "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
-    "noEmit": true,
+    // 1. 【移除或改为 false】我们现在需要编译输出！
+    "noEmit": false, 
+    
+    // 2. 【新增】指定编译后的 JS 文件要输出到哪个文件夹
+    "outDir": "./dist", 
+    
+    // 3. 【新增】指定 TypeScript 源文件的根目录（让编译后的目录结构更清晰）
+    "rootDir": "./server",
     "module": "ESNext",
     "strict": true,
     "lib": ["esnext", "dom", "dom.iterable"],
