@@ -8,6 +8,7 @@ import { createServer as createViteServer, createLogger } from "vite";
 
 import viteConfig from "../vite.config";
 import runApp from "./app";
+import { connectDB } from "./db";
 
 export async function setupVite(app: Express, server: Server) {
   const viteLogger = createLogger();
@@ -59,5 +60,9 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 (async () => {
+  // 2. 在启动应用 (runApp) 之前，首先连接数据库
+  await connectDB(); 
+  
+  // 3. 然后启动 Express 服务器和 Vite
   await runApp(setupVite);
 })();
